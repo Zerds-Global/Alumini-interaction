@@ -1,0 +1,21 @@
+#main{
+  margin-top: 100px !important;
+  overflow: hidden !important;
+}
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 1050; /* Higher than table */
+}
+
+@media screen and (max-width:800px) {
+  #sidebar{
+    width: 70px !important;
+  }
+  #navtext{
+    display: none;
+
+  }
+  #main{
+    margin-left: 75px !important;
+  }
+}
