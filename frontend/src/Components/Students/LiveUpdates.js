@@ -59,7 +59,7 @@ function StudentsLiveUpdates() {
   useEffect(() => {
     // Load update posts dynamically from backend
     const token = localStorage.getItem("token");
-    fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=update&populate=postedBy", {
+    fetch("https://alumini-interaction.onrender.com/api/posts?postType=update&populate=postedBy", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -97,7 +97,7 @@ function StudentsLiveUpdates() {
     const userId = localStorage.getItem('userId') || localStorage.getItem('name') || 'guest';
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${updateId}/like`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${updateId}/like`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -133,7 +133,7 @@ function StudentsLiveUpdates() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${selectedUpdateForComment.id}/comment`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${selectedUpdateForComment.id}/comment`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -192,7 +192,7 @@ function StudentsLiveUpdates() {
   const handleShare = async (updateId) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${updateId}/share`, { 
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${updateId}/share`, { 
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${token}`,
