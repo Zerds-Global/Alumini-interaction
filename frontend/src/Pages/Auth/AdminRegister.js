@@ -41,7 +41,7 @@ function AdminRegister() {
     formDataToSend.append("role", "admin");
 
     try {
-      const response = await fetch("https://render.com/docs/web-services#port-binding/api/users", {
+      const response = await fetch("https://alumini-interaction.onrender.com/api/users", {
         method: "POST",
         body: formDataToSend,
       });
