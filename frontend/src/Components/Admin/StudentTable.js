@@ -48,7 +48,7 @@ const StudentList = () => {
     const fetchBatches = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://127.0.0.1:5000/api/batches", {
+            const response = await fetch("https://render.com/docs/web-services#port-binding/api/batches", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -64,7 +64,7 @@ const StudentList = () => {
     const fetchStudents = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://127.0.0.1:5000/api/users", {
+            const response = await fetch("https://render.com/docs/web-services#port-binding/api/users", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -118,7 +118,7 @@ const StudentList = () => {
     const updateRole = async (id, role) => {
         try {
             const token = localStorage.getItem("token");
-            await fetch(`http://127.0.0.1:5000/api/users/${id}`, {
+            await fetch(`https://render.com/docs/web-services#port-binding/api/users/${id}`, {
                 method: "PUT",
                 headers: { 
                     "Authorization": `Bearer ${token}`,
@@ -144,8 +144,8 @@ const StudentList = () => {
         try {
             const token = localStorage.getItem("token");
             const url = editingStudent
-                ? `http://127.0.0.1:5000/api/users/${editingStudent._id}`
-                : "http://127.0.0.1:5000/api/users";
+                ? `https://render.com/docs/web-services#port-binding/api/users/${editingStudent._id}`
+                : "https://render.com/docs/web-services#port-binding/api/users";
             const method = editingStudent ? "PUT" : "POST";
 
             let dataToSend = { ...formData };
@@ -225,7 +225,7 @@ const StudentList = () => {
         if (window.confirm("Are you sure you want to delete this student?")) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`http://127.0.0.1:5000/api/users/${id}`, {
+                const response = await fetch(`https://render.com/docs/web-services#port-binding/api/users/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Authorization": `Bearer ${token}`,
