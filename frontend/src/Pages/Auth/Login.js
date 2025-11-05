@@ -20,7 +20,7 @@ function Login() {
     setError("");
 
     try {
-      const response = await fetch("https://render.com/docs/web-services#port-binding/api/users/login", {
+      const response = await fetch("https://alumini-interaction.onrender.com/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
