@@ -51,7 +51,7 @@ function Register() {
     formDataToSend.append("role", "alumni"); // Alumni registration 
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/users", {
+      const response = await fetch("https://render.com/docs/web-services#port-binding/api/users", {
         method: "POST",
         body: formDataToSend,
       });
