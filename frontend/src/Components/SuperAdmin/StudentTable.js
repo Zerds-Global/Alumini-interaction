@@ -38,7 +38,7 @@ const SuperAdminStudentList = () => {
     const fetchBatches = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("https://render.com/docs/web-services#port-binding/api/batches", {
+            const response = await fetch("https://alumini-interaction.onrender.com/api/batches", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -54,7 +54,7 @@ const SuperAdminStudentList = () => {
     const fetchStudents = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("https://render.com/docs/web-services#port-binding/api/users", {
+            const response = await fetch("https://alumini-interaction.onrender.com/api/users", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -81,7 +81,7 @@ const SuperAdminStudentList = () => {
     const updateRole = async (id, role) => {
         try {
             const token = localStorage.getItem("token");
-            await fetch(`https://render.com/docs/web-services#port-binding/api/users/${id}`, {
+            await fetch(`hhttps://alumini-interaction.onrender.com/api/users/${id}`, {
                 method: "PUT",
                 headers: { 
                     "Authorization": `Bearer ${token}`,
@@ -105,8 +105,8 @@ const SuperAdminStudentList = () => {
         try {
             const token = localStorage.getItem("token");
             const url = editingStudent
-                ? `https://render.com/docs/web-services#port-binding/api/users/${editingStudent._id}`
-                : "https://render.com/docs/web-services#port-binding/api/users";
+                ? `https://alumini-interaction.onrender.com/api/users/${editingStudent._id}`
+                : "https://alumini-interaction.onrender.com/api/users";
             const method = editingStudent ? "PUT" : "POST";
 
             let dataToSend = { ...formData };
@@ -178,7 +178,7 @@ const SuperAdminStudentList = () => {
         if (window.confirm("Are you sure you want to delete this student?")) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`https://render.com/docs/web-services#port-binding/api/users/${id}`, {
+                const response = await fetch(`https://alumini-interaction.onrender.com/api/users/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Authorization": `Bearer ${token}`,
