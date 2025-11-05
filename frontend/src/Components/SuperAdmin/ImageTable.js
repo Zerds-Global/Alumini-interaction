@@ -9,7 +9,7 @@ function SuperAdminImageTable() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     // Fetch from posts API with postType=photo to get engagement data
-    fetch("http://127.0.0.1:5000/api/posts?postType=photo", {
+    fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=photo", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -44,7 +44,7 @@ function SuperAdminImageTable() {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this photo post?")) {
       const token = localStorage.getItem("token");
-      fetch(`http://127.0.0.1:5000/api/posts/${id}`, { 
+      fetch(`https://render.com/docs/web-services#port-binding/api/posts/${id}`, { 
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -106,7 +106,7 @@ function SuperAdminImageTable() {
               <tr key={index}>
                 <td className="text-center">
                   <img
-                    src={image.image ? (image.image.startsWith('data:') ? image.image : (image.image.startsWith('/uploads/') ? `http://127.0.0.1:5000${image.image}` : `data:image/png;base64,${image.image}`)) : "/placeholder.png"}
+                    src={image.image ? (image.image.startsWith('data:') ? image.image : (image.image.startsWith('/uploads/') ? `https://render.com/docs/web-services#port-binding${image.image}` : `data:image/png;base64,${image.image}`)) : "/placeholder.png"}
                     alt={image.heading || "photo"}
                     className="rounded shadow-sm"
                     style={{ width: "80px", height: "80px", objectFit: "cover" }}
