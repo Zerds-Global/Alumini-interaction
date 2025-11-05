@@ -8,7 +8,7 @@ function FeedbackTable() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("https://render.com/docs/web-services#port-binding/api/feedback", {
+        fetch("https://alumini-interaction.onrender.com/api/feedback", {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ function FeedbackTable() {
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this feedback?")) {
             const token = localStorage.getItem("token");
-            fetch(`https://render.com/docs/web-services#port-binding/api/feedback/${id}`, { 
+            fetch(`https://alumini-interaction.onrender.com/api/feedback/${id}`, { 
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,
