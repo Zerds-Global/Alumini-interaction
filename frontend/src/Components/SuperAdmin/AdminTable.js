@@ -27,7 +27,7 @@ const AdminTable = () => {
     // Fetch colleges and admins from API
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("https://render.com/docs/web-services#port-binding/api/colleges", {
+        fetch("https://alumini-interaction.onrender.com/api/colleges", {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
@@ -74,7 +74,7 @@ const AdminTable = () => {
 
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("https://render.com/docs/web-services#port-binding/api/colleges", {
+            const response = await fetch("https://alumini-interaction.onrender.com/api/colleges", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,
@@ -103,7 +103,7 @@ const AdminTable = () => {
     const handleDelete = (collegeId, adminId) => {
         if (window.confirm("Are you sure you want to delete this college and its admin? This action cannot be undone.")) {
             const token = localStorage.getItem("token");
-            fetch(`https://render.com/docs/web-services#port-binding/api/colleges/${collegeId}`, { 
+            fetch(`https://alumini-interaction.onrender.com/api/colleges/${collegeId}`, { 
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,
