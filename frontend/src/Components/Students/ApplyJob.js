@@ -62,7 +62,7 @@ function StudentsJobPosts() {
   // Load jobs from backend on mount
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://render.com/docs/web-services#port-binding/api/jobs", {
+    fetch("https://alumini-interaction.onrender.com/api/jobs", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -90,7 +90,7 @@ function StudentsJobPosts() {
       })
       .catch((err) => console.error("Error loading jobs:", err));
     // Also load Post records for jobs to enable like/comment/share
-    fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=job&populate=postedBy", {
+    fetch("https://alumini-interaction.onrender.com/api/posts?postType=job&populate=postedBy", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -146,7 +146,7 @@ function StudentsJobPosts() {
       if (!postInfo) return;
       const userId = localStorage.getItem('userId') || localStorage.getItem('name') || 'guest';
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}/like`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}/like`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ function StudentsJobPosts() {
       if (!postInfo) return;
       const userId = localStorage.getItem('userId') || localStorage.getItem('name') || 'guest';
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}/comment`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}/comment`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -199,7 +199,7 @@ function StudentsJobPosts() {
       const postInfo = jobPostsMap[jobId];
       if (!postInfo) return;
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}/share`, { 
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}/share`, { 
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${token}`,
