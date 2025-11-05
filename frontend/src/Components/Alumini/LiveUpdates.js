@@ -59,7 +59,7 @@ function LiveUpdates() {
       params.append('collegeId', collegeId);
     }
     
-    fetch(`https://render.com/docs/web-services#port-binding/api/posts?${params.toString()}`, {
+    fetch(`https://alumini-interaction.onrender.com/api/posts?${params.toString()}`, {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -103,7 +103,7 @@ function LiveUpdates() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${updateId}/like`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${updateId}/like`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -142,7 +142,7 @@ function LiveUpdates() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${selectedUpdateForComment.id}/comment`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${selectedUpdateForComment.id}/comment`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -203,7 +203,7 @@ function LiveUpdates() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${updateId}/share`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${updateId}/share`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -232,7 +232,7 @@ function LiveUpdates() {
       const token = localStorage.getItem("token");
       if (update.referenceId) {
         try { 
-          await fetch(`https://render.com/docs/web-services#port-binding/api/updates/${update.referenceId}`, { 
+          await fetch(`https://alumini-interaction.onrender.com/api/updates/${update.referenceId}`, { 
             method: 'DELETE',
             headers: {
               "Authorization": `Bearer ${token}`,
@@ -241,7 +241,7 @@ function LiveUpdates() {
           }); 
         } catch (_) {}
       }
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${update.id}`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${update.id}`, {
         method: 'DELETE',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -294,7 +294,7 @@ function LiveUpdates() {
 
     // Create update on backend then create a Post
     const token = localStorage.getItem("token");
-    fetch("https://render.com/docs/web-services#port-binding/api/updates", {
+    fetch("https://alumini-interaction.onrender.com/api/updates", {
       method: "POST",
       headers: { 
         "Authorization": `Bearer ${token}`,
@@ -304,7 +304,7 @@ function LiveUpdates() {
     })
       .then((res) => res.json())
       .then(async (savedUpdate) => {
-        const postRes = await fetch("https://render.com/docs/web-services#port-binding/api/posts", {
+        const postRes = await fetch("https://alumini-interaction.onrender.com/api/posts", {
           method: "POST",
           headers: { 
             "Authorization": `Bearer ${token}`,
