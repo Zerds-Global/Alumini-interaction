@@ -43,7 +43,7 @@ function ViewProfile() {
             try {
                 const token = localStorage.getItem("token");
                 const response = await fetch(
-                    `http://127.0.0.1:5000/api/users/${userId}`,
+                    `https://render.com/docs/web-services#port-binding/api/users/${userId}`,
                     {
                         headers: {
                             "Authorization": `Bearer ${token}`,
