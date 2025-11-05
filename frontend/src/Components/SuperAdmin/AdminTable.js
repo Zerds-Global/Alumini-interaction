@@ -27,7 +27,7 @@ const AdminTable = () => {
     // Fetch colleges and admins from API
     useEffect(() => {
         const token = localStorage.getItem("token");
-        fetch("http://127.0.0.1:5000/api/colleges", {
+        fetch("https://render.com/docs/web-services#port-binding/api/colleges", {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
@@ -74,7 +74,7 @@ const AdminTable = () => {
 
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://127.0.0.1:5000/api/colleges", {
+            const response = await fetch("https://render.com/docs/web-services#port-binding/api/colleges", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,
@@ -103,7 +103,7 @@ const AdminTable = () => {
     const handleDelete = (collegeId, adminId) => {
         if (window.confirm("Are you sure you want to delete this college and its admin? This action cannot be undone.")) {
             const token = localStorage.getItem("token");
-            fetch(`http://127.0.0.1:5000/api/colleges/${collegeId}`, { 
+            fetch(`https://render.com/docs/web-services#port-binding/api/colleges/${collegeId}`, { 
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,
