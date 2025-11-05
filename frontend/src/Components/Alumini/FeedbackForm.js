@@ -25,7 +25,7 @@ function FeedbackForm() {
     
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://render.com/docs/web-services#port-binding/api/feedback", {
+      const response = await fetch("https://alumini-interaction.onrender.com/api/feedback", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
