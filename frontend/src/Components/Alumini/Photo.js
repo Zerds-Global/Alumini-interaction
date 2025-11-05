@@ -65,7 +65,7 @@ function Photo() {
       params.append('collegeId', collegeId);
     }
     
-    fetch(`http://127.0.0.1:5000/api/posts?${params.toString()}`, {
+    fetch(`https://render.com/docs/web-services#port-binding/api/posts?${params.toString()}`, {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -77,7 +77,7 @@ function Photo() {
           id: p._id,
           heading: p.heading,
           description: p.description,
-          image: p.image ? (p.image.startsWith('/uploads/') ? `http://127.0.0.1:5000${p.image}` : p.image) : null,
+          image: p.image ? (p.image.startsWith('/uploads/') ? `https://render.com/docs/web-services#port-binding${p.image}` : p.image) : null,
           referenceId: p.referenceId,
           postType: p.postType,
           likes: Array.isArray(p.likes) ? p.likes.length : 0,
@@ -103,7 +103,7 @@ function Photo() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${photoId}/like`, {
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${photoId}/like`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -142,7 +142,7 @@ function Photo() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${selectedPhotoForComment.id}/comment`, {
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${selectedPhotoForComment.id}/comment`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -203,7 +203,7 @@ function Photo() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${photoId}/share`, {
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${photoId}/share`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -233,7 +233,7 @@ function Photo() {
       // Try deleting underlying photo first (ignore if missing)
       if (photo.referenceId) {
         try { 
-          await fetch(`http://127.0.0.1:5000/api/photo/${photo.referenceId}`, { 
+          await fetch(`https://render.com/docs/web-services#port-binding/api/photo/${photo.referenceId}`, { 
             method: 'DELETE',
             headers: {
               "Authorization": `Bearer ${token}`,
@@ -243,7 +243,7 @@ function Photo() {
         } catch (_) {}
       }
       // Delete the post itself
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${photo.id}`, {
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${photo.id}`, {
         method: 'DELETE',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -311,7 +311,7 @@ function Photo() {
       .then((res) => res.json())
       .then(async (savedPhoto) => {
         // Create a Post referencing this photo
-            const postRes = await fetch("http://127.0.0.1:5000/api/posts", {
+            const postRes = await fetch("https://render.com/docs/web-services#port-binding/api/posts", {
               method: "POST",
               headers: { 
                 "Authorization": `Bearer ${token}`,
@@ -339,7 +339,7 @@ function Photo() {
           id: newPost._id,
           heading: newPost.heading,
           description: newPost.description,
-          image: newPost.image ? (newPost.image.startsWith('/uploads/') ? `http://127.0.0.1:5000${newPost.image}` : newPost.image) : null,
+          image: newPost.image ? (newPost.image.startsWith('/uploads/') ? `https://render.com/docs/web-services#port-binding${newPost.image}` : newPost.image) : null,
               referenceId: savedPhoto._id,
               postType: 'photo',
               postedBy: newPost.postedBy || 'User',
