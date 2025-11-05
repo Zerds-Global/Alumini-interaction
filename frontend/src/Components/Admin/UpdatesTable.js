@@ -10,7 +10,7 @@ const UpdatesTable = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         // Fetch from posts API with postType=update to get engagement data
-        fetch("http://127.0.0.1:5000/api/posts?postType=update", {
+        fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=update", {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
@@ -20,7 +20,7 @@ const UpdatesTable = () => {
             .then((data) => {
                 const updatePosts = Array.isArray(data) ? data : [];
                 // Also fetch original update data to get heading, description
-                return fetch("http://127.0.0.1:5000/api/updates", {
+                return fetch("https://render.com/docs/web-services#port-binding/api/updates", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "application/json"
@@ -48,7 +48,7 @@ const UpdatesTable = () => {
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this update post?")) {
             const token = localStorage.getItem("token");
-            fetch(`http://127.0.0.1:5000/api/posts/${id}`, { 
+            fetch(`https://render.com/docs/web-services#port-binding/api/posts/${id}`, { 
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,
