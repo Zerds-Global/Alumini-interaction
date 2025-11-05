@@ -55,7 +55,7 @@ function Job() {
   // Load jobs from backend on mount
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("https://render.com/docs/web-services#port-binding/api/jobs", {
+    fetch("https://alumini-interaction.onrender.com/api/jobs", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -84,7 +84,7 @@ function Job() {
       })
       .catch((err) => console.error("Error loading jobs:", err));
     // Also load Post records for jobs to enable like/comment/share
-    fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=job", {
+    fetch("https://alumini-interaction.onrender.com/api/posts?postType=job", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -161,7 +161,7 @@ function Job() {
     e.preventDefault();
     // Create job on backend then create a Post
     const token = localStorage.getItem("token");
-    fetch("https://render.com/docs/web-services#port-binding/api/jobs", {
+    fetch("https://alumini-interaction.onrender.com/api/jobs", {
       method: "POST",
       headers: { 
         "Authorization": `Bearer ${token}`,
@@ -171,7 +171,7 @@ function Job() {
     })
       .then((res) => res.json())
       .then(async (savedJob) => {
-        const postRes = await fetch("https://render.com/docs/web-services#port-binding/api/posts", {
+        const postRes = await fetch("https://alumini-interaction.onrender.com/api/posts", {
           method: "POST",
           headers: { 
             "Authorization": `Bearer ${token}`,
@@ -239,7 +239,7 @@ function Job() {
       const postInfo = jobPostsMap[jobId];
       if (!postInfo) return;
       const userId = localStorage.getItem('userId') || localStorage.getItem('name') || 'guest';
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}/like`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}/like`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -277,7 +277,7 @@ function Job() {
       const postInfo = jobPostsMap[selectedJobForComment._id];
       if (!postInfo) return;
       
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}/comment`, {
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}/comment`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -332,7 +332,7 @@ function Job() {
       const token = localStorage.getItem("token");
       const postInfo = jobPostsMap[jobId];
       if (!postInfo) return;
-      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}/share`, { 
+      const res = await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}/share`, { 
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -358,7 +358,7 @@ function Job() {
       const token = localStorage.getItem("token");
       // Delete the underlying job
       try { 
-        await fetch(`https://render.com/docs/web-services#port-binding/api/jobs/${job._id}`, { 
+        await fetch(`https://alumini-interaction.onrender.com/api/jobs/${job._id}`, { 
           method: 'DELETE',
           headers: {
             "Authorization": `Bearer ${token}`,
@@ -370,7 +370,7 @@ function Job() {
       const postInfo = jobPostsMap[job._id];
       if (postInfo?.postId) {
         try { 
-          await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${postInfo.postId}`, { 
+          await fetch(`https://alumini-interaction.onrender.com/api/posts/${postInfo.postId}`, { 
             method: 'DELETE',
             headers: {
               "Authorization": `Bearer ${token}`,
