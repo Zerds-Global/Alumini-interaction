@@ -139,7 +139,7 @@ function ProfileUpdate() {
 
             // Update alumni work experience using PUT /api/users/:id/profile
             const profileResponse = await fetch(
-                `http://127.0.0.1:5000/api/users/${userId}/profile`,
+                `https://render.com/docs/web-services#port-binding/api/users/${userId}/profile`,
                 {
                     method: "PUT",
                     headers: {
