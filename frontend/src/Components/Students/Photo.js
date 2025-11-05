@@ -63,7 +63,7 @@ function StudentsPhotoPost() {
   useEffect(() => {
     // Load photo posts dynamically from backend
     const token = localStorage.getItem("token");
-    fetch("http://127.0.0.1:5000/api/posts?postType=photo&populate=postedBy", {
+    fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=photo&populate=postedBy", {
       headers: {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
@@ -75,7 +75,7 @@ function StudentsPhotoPost() {
           id: p._id,
           heading: p.heading,
           description: p.description,
-          image: p.image ? (p.image.startsWith('/uploads/') ? `http://127.0.0.1:5000${p.image}` : p.image) : "",
+          image: p.image ? (p.image.startsWith('/uploads/') ? `https://render.com/docs/web-services#port-binding${p.image}` : p.image) : "",
           likes: Array.isArray(p.likes) ? p.likes.length : 0,
           likedBy: Array.isArray(p.likes) ? p.likes : [],
           comments: Array.isArray(p.comments) ? p.comments.length : 0,
@@ -95,7 +95,7 @@ function StudentsPhotoPost() {
     const userId = localStorage.getItem('userId') || localStorage.getItem('name') || 'guest';
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${photoId}/like`, {
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${photoId}/like`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -131,7 +131,7 @@ function StudentsPhotoPost() {
     }
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${selectedPhotoForComment.id}/comment`, {
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${selectedPhotoForComment.id}/comment`, {
         method: 'POST',
         headers: { 
           "Authorization": `Bearer ${token}`,
@@ -190,7 +190,7 @@ function StudentsPhotoPost() {
   const handleShare = async (photoId) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://127.0.0.1:5000/api/posts/${photoId}/share`, { 
+      const res = await fetch(`https://render.com/docs/web-services#port-binding/api/posts/${photoId}/share`, { 
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${token}`,
