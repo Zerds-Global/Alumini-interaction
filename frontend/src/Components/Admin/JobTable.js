@@ -10,7 +10,7 @@ const JobTable = () => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         // Fetch from posts API with postType=job to get engagement data
-        fetch("http://127.0.0.1:5000/api/posts?postType=job", {
+        fetch("https://render.com/docs/web-services#port-binding/api/posts?postType=job", {
             headers: {
                 "Authorization": `Bearer ${token}`,
                 "Content-Type": "application/json"
@@ -20,7 +20,7 @@ const JobTable = () => {
             .then((data) => {
                 const jobPosts = Array.isArray(data) ? data : [];
                 // Also fetch original job data to get title, description, etc.
-                return fetch("http://127.0.0.1:5000/api/jobs", {
+                return fetch("https://render.com/docs/web-services#port-binding/api/jobs", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "Content-Type": "application/json"
@@ -48,7 +48,7 @@ const JobTable = () => {
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this job post?")) {
             const token = localStorage.getItem("token");
-            fetch(`http://127.0.0.1:5000/api/posts/${id}`, { 
+            fetch(`https://render.com/docs/web-services#port-binding/api/posts/${id}`, { 
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,
