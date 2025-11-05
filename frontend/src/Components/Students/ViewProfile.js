@@ -43,7 +43,7 @@ function ViewProfile() {
             try {
                 const token = localStorage.getItem("token");
                 const response = await fetch(
-                    `https://render.com/docs/web-services#port-binding/api/users/${userId}`,
+                    `https://alumini-interaction.onrender.com/api/users/${userId}`,
                     {
                         headers: {
                             "Authorization": `Bearer ${token}`,
