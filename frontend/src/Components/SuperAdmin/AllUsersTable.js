@@ -18,7 +18,7 @@ const AllUsersTable = () => {
         setError("");
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://127.0.0.1:5000/api/users", {
+            const response = await fetch("https://render.com/docs/web-services#port-binding/api/users", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -44,7 +44,7 @@ const AllUsersTable = () => {
         if (window.confirm(`Are you sure you want to delete user: ${userName}?`)) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`http://127.0.0.1:5000/api/users/${id}`, {
+                const response = await fetch(`https://render.com/docs/web-services#port-binding/api/users/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Authorization": `Bearer ${token}`,
