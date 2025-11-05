@@ -15,7 +15,7 @@ function BatchTable() {
   const fetchBatches = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://127.0.0.1:5000/api/batches", {
+      const response = await fetch("https://render.com/docs/web-services#port-binding/api/batches", {
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
@@ -32,7 +32,7 @@ function BatchTable() {
     if (newBatch.batchName && newBatch.startDate && newBatch.endDate) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://127.0.0.1:5000/api/batches", {
+        const response = await fetch("https://render.com/docs/web-services#port-binding/api/batches", {
           method: "POST",
           headers: { 
             "Authorization": `Bearer ${token}`,
@@ -64,7 +64,7 @@ function BatchTable() {
     if (window.confirm("Are you sure you want to delete this batch?")) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`http://127.0.0.1:5000/api/batches/${id}`, {
+        const response = await fetch(`https://render.com/docs/web-services#port-binding/api/batches/${id}`, {
           method: "DELETE",
           headers: {
             "Authorization": `Bearer ${token}`,
