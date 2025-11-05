@@ -25,7 +25,7 @@ function FeedbackForm() {
     
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://127.0.0.1:5000/api/feedback", {
+      const response = await fetch("https://render.com/docs/web-services#port-binding/api/feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
