@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use(express.json()); // Parses JSON requests
 app.use(cors({
   // Allow both localhost and 127.0.0.1 for CRA dev server
-  origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+  origin: ["https://alumini-interaction.onrender.com", "http://alumini-interaction.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
